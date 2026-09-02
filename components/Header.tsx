@@ -8,7 +8,7 @@ export default function Header() {
         <div className="nav">
           <a href="#" className="brand">
             <span className="mark" />
-            Dr. Bethapudi Sowjanya</span>
+            <span> Dr. Bethapudi Sowjanya</span>
           </a>
           <nav>
             <ul className="navlinks">
