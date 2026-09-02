@@ -14,7 +14,7 @@ export default function About() {
           <div className="eyebrow">About the Practice</div>
           <h2>Medicine works best as a partnership — not a prescription.</h2>
           <p>
-            Dr. Ananya Reddy has spent over 13 years helping women navigate menstrual
+            Dr. Bethapudi Sowjanya has spent over 13 years helping women navigate menstrual
             health, fertility, pregnancy and menopause with clarity instead of
             confusion. Her approach blends clinical precision with genuine listening —
             because every treatment plan should fit the person, not the other way
