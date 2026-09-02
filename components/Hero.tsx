@@ -15,7 +15,7 @@ export default function Hero() {
           </p>
           <div className="hero-actions">
             <a href="#contact" className="btn btn-primary">Book an Appointment →</a>
-            <a href="#doctor" className="btn btn-outline">Meet Dr. Reddy</a>
+            <a href="#doctor" className="btn btn-outline">Meet Dr. Sowjanya</a>
           </div>
           <div className="hero-trust">
             <div>13+<small>Years of Practice</small></div>
