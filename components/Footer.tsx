@@ -21,7 +21,7 @@ export default function Footer() {
         <div>
           <h4>Contact</h4>
           <ul>
-            <li>drananyareddy@example.com</li>
+            <li>drbethapudisowjanya@example.com</li>
             <li>+91 90000 00000</li>
           </ul>
         </div>
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="wrap foot-bottom">
-        © Dr. Ananya Reddy 2026 — Template design, replace all placeholder content.
+        © Dr. Bethapudi Sowjanya 2026 — Template design, replace all placeholder content.
       </div>
     </footer>
   );
