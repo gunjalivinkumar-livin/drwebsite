@@ -22,7 +22,7 @@ export default function DoctorProfile() {
         </div>
         <div className="doc-info">
           <div className="eyebrow">Meet the Doctor</div>
-          <h3>Dr. Ananya Reddy</h3>
+          <h3>Dr. Bethapudi Sowjanya</h3>
           <div className="role">Consultant Gynaecologist &amp; Cosmetic Gynaecologist</div>
           <p>
             With 13 years in Obstetrics, Gynaecology, Laparoscopy and Cosmetic
