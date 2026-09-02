@@ -1,4 +1,4 @@
-# Dr. Ananya Reddy — Doctor Website (Next.js + React)
+# Dr. Bethapudi Sowjanya — Doctor Website (Next.js + React)
 
 A warm, pastel pink/beige themed gynaecologist website built with Next.js 14
 (App Router) and TypeScript. Structure mirrors a typical doctor/clinic site:
