@@ -5,7 +5,7 @@ export default function Footer() {
         <div>
           <a href="#" className="brand" style={{ color: "var(--white)", marginBottom: 14, display: "inline-flex" }}>
             <span className="mark" />
-            Dr. Bethapudi Sowjanya <span style={{ color: "var(--gold)" }}</span>
+            Dr. Bethapudi Sowjanya
           </a>
           <p>Gentle, evidence-based gynaecological care — from adolescence through menopause.</p>
         </div>
