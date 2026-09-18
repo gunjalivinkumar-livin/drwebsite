@@ -1,21 +1,25 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer>
       <div className="wrap foot-grid">
         <div>
-          <a href="#" className="brand" style={{ color: "var(--white)", marginBottom: 14, display: "inline-flex" }}>
+          <Link href="/" className="brand" style={{ color: "var(--white)", marginBottom: 14, display: "inline-flex" }}>
             <span className="mark" />
             Dr. Bethapudi Sowjanya
-          </a>
+          </Link>
           <p>Gentle, evidence-based gynaecological care — from adolescence through menopause.</p>
         </div>
         <div>
           <h4>Explore</h4>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#specializations">Specializations</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#doctor">Meet the Doctor</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#specializations">Specializations</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#doctor">Meet the Doctor</a></li>
+            <li><Link href="/gallery">Gallery</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
           </ul>
         </div>
         <div>

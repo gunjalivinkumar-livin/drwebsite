@@ -1,3 +1,6 @@
+import Reveal from "./Reveal";
+import AnimatedCounter from "./AnimatedCounter";
+
 const stats = [
   { value: "13+", label: "Years of Experience" },
   { value: "10+", label: "Years Running Bloom Awareness" },
@@ -9,11 +12,15 @@ export default function Stats() {
   return (
     <section className="stats">
       <div className="wrap stats-grid">
-        {stats.map((s) => (
-          <div key={s.label}>
-            <h3>{s.value}</h3>
-            <p>{s.label}</p>
-          </div>
+        {stats.map((s, i) => (
+          <Reveal as="up" delay={i * 90} key={s.label}>
+            <div>
+              <h3>
+                <AnimatedCounter value={s.value} />
+              </h3>
+              <p>{s.label}</p>
+            </div>
+          </Reveal>
         ))}
       </div>
     </section>

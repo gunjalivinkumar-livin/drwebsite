@@ -25,25 +25,31 @@ const specializations = [
   },
 ];
 
+import Reveal from "./Reveal";
+
 export default function Specializations() {
   return (
     <section id="specializations">
       <div className="wrap">
-        <div className="section-head">
-          <div className="eyebrow center">Our Specializations</div>
-          <h2>Reproductive health, at every stage of life</h2>
-          <p>
-            A full spectrum of care built around one idea: informed women make better
-            decisions about their own bodies.
-          </p>
-        </div>
+        <Reveal>
+          <div className="section-head">
+            <div className="eyebrow center">Our Specializations</div>
+            <h2>Reproductive health, at every stage of life</h2>
+            <p>
+              A full spectrum of care built around one idea: informed women make better
+              decisions about their own bodies.
+            </p>
+          </div>
+        </Reveal>
         <div className="spec-grid">
-          {specializations.map((s) => (
-            <div className="spec-card" key={s.title}>
-              <div className="spec-icon">{s.icon}</div>
-              <h4>{s.title}</h4>
-              <p>{s.description}</p>
-            </div>
+          {specializations.map((s, i) => (
+            <Reveal as="up" delay={i * 80} key={s.title}>
+              <div className="spec-card">
+                <div className="spec-icon">{s.icon}</div>
+                <h4>{s.title}</h4>
+                <p>{s.description}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

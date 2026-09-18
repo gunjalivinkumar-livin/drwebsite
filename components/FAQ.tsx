@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Reveal from "./Reveal";
 
 const faqs = [
   {
@@ -27,33 +28,37 @@ export default function FAQ() {
   return (
     <section>
       <div className="wrap">
-        <div className="section-head">
-          <div className="eyebrow center">FAQs</div>
-          <h2>Common questions, answered plainly</h2>
-        </div>
-        <div className="faq">
-          {faqs.map((item, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div className={`faq-item${isOpen ? " open" : ""}`} key={item.q}>
-                <button
-                  className="faq-q"
-                  onClick={() => setOpenIndex(isOpen ? -1 : i)}
-                  aria-expanded={isOpen}
-                >
-                  <span>{item.q}</span>
-                  <span className="icon" />
-                </button>
-                <div
-                  className="faq-a"
-                  style={{ maxHeight: isOpen ? 200 : 0 }}
-                >
-                  <p>{item.a}</p>
+        <Reveal>
+          <div className="section-head">
+            <div className="eyebrow center">FAQs</div>
+            <h2>Common questions, answered plainly</h2>
+          </div>
+        </Reveal>
+        <Reveal as="up" delay={80}>
+          <div className="faq">
+            {faqs.map((item, i) => {
+              const isOpen = openIndex === i;
+              return (
+                <div className={`faq-item${isOpen ? " open" : ""}`} key={item.q}>
+                  <button
+                    className="faq-q"
+                    onClick={() => setOpenIndex(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                  >
+                    <span>{item.q}</span>
+                    <span className="icon" />
+                  </button>
+                  <div
+                    className="faq-a"
+                    style={{ maxHeight: isOpen ? 200 : 0 }}
+                  >
+                    <p>{item.a}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

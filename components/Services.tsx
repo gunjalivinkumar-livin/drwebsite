@@ -29,25 +29,31 @@ const services = [
   },
 ];
 
+import Reveal from "./Reveal";
+
 export default function Services() {
   return (
     <section className="bg-alt" id="services">
       <div className="wrap">
-        <div className="section-head">
-          <div className="eyebrow center">Healthcare Services</div>
-          <h2>Care designed around your life stage</h2>
-        </div>
-        <div className="service-scroll">
-          {services.map((s) => (
-            <div className="service-card" key={s.title}>
-              <div className="service-thumb" style={{ background: s.gradient }} />
-              <div className="body">
-                <h4>{s.title}</h4>
-                <p>{s.description}</p>
+        <Reveal>
+          <div className="section-head">
+            <div className="eyebrow center">Healthcare Services</div>
+            <h2>Care designed around your life stage</h2>
+          </div>
+        </Reveal>
+        <Reveal as="fade" delay={100}>
+          <div className="service-scroll">
+            {services.map((s) => (
+              <div className="service-card" key={s.title}>
+                <div className="service-thumb" style={{ background: s.gradient }} />
+                <div className="body">
+                  <h4>{s.title}</h4>
+                  <p>{s.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,4 +1,26 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+const sectionLinks = [
+  { label: "About", hash: "about" },
+  { label: "Specializations", hash: "specializations" },
+  { label: "Services", hash: "services" },
+  { label: "Meet the Doctor", hash: "doctor" },
+  { label: "Testimonials", hash: "testimonials" },
+];
+
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [open, setOpen] = useState(false);
+
+  // On the homepage, section links are plain in-page anchors. On any other
+  // page (gallery, blog, ...) they need to route back to "/" first.
+  const sectionHref = (hash: string) => (isHome ? `#${hash}` : `/#${hash}`);
+
   return (
     <>
       <div className="announce">
@@ -6,23 +28,68 @@ export default function Header() {
       </div>
       <header>
         <div className="nav">
-          <a href="#" className="brand">
+          <Link href="/" className="brand">
             <span className="mark" />
             Dr. Bethapudi <span>Sowjanya</span>
-          </a>
+          </Link>
+
           <nav>
             <ul className="navlinks">
-              <li><a href="#about">About</a></li>
-              <li><a href="#specializations">Specializations</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#doctor">Meet the Doctor</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#contact">Contact</a></li>
+              {sectionLinks.map((l) => (
+                <li key={l.hash}>
+                  <a href={sectionHref(l.hash)}>{l.label}</a>
+                </li>
+              ))}
+              <li>
+                <Link href="/gallery" className={pathname === "/gallery" ? "navlink-active" : ""}>
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className={pathname?.startsWith("/blog") ? "navlink-active" : ""}>
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <a href={sectionHref("contact")}>Contact</a>
+              </li>
             </ul>
           </nav>
+
           <div className="nav-actions">
-            <a href="#contact" className="btn btn-primary">Book a Visit</a>
+            <a href={sectionHref("contact")} className="btn btn-primary">Book a Visit</a>
+            <button
+              className={`nav-toggle${open ? " open" : ""}`}
+              aria-label="Toggle menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
+        </div>
+
+        <div className={`mobile-menu${open ? " open" : ""}`}>
+          <ul>
+            {sectionLinks.map((l) => (
+              <li key={l.hash}>
+                <a href={sectionHref(l.hash)} onClick={() => setOpen(false)}>
+                  {l.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <Link href="/gallery" onClick={() => setOpen(false)}>Gallery</Link>
+            </li>
+            <li>
+              <Link href="/blog" onClick={() => setOpen(false)}>Blog</Link>
+            </li>
+            <li>
+              <a href={sectionHref("contact")} onClick={() => setOpen(false)}>Contact</a>
+            </li>
+          </ul>
         </div>
       </header>
     </>

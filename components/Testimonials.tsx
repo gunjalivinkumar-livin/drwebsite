@@ -19,27 +19,33 @@ const testimonials = [
   },
 ];
 
+import Reveal from "./Reveal";
+
 export default function Testimonials() {
   return (
     <section className="bg-alt" id="testimonials">
       <div className="wrap">
-        <div className="section-head">
-          <div className="eyebrow center">Testimonials</div>
-          <h2>What patients are saying</h2>
-        </div>
+        <Reveal>
+          <div className="section-head">
+            <div className="eyebrow center">Testimonials</div>
+            <h2>What patients are saying</h2>
+          </div>
+        </Reveal>
         <div className="test-grid">
-          {testimonials.map((t) => (
-            <div className="test-card" key={t.name}>
-              <div className="stars">★★★★★</div>
-              <p>&quot;{t.quote}&quot;</p>
-              <div className="test-author">
-                <div className="av" />
-                <div>
-                  <strong>{t.name}</strong>
-                  <span>{t.meta}</span>
+          {testimonials.map((t, i) => (
+            <Reveal as="up" delay={i * 100} key={t.name}>
+              <div className="test-card">
+                <div className="stars">★★★★★</div>
+                <p>&quot;{t.quote}&quot;</p>
+                <div className="test-author">
+                  <div className="av" />
+                  <div>
+                    <strong>{t.name}</strong>
+                    <span>{t.meta}</span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
