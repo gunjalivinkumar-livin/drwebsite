@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const sectionLinks = [
   { label: "About", hash: "about" },
-  { label: "Specializations", hash: "specializations" },
   { label: "Services", hash: "services" },
   { label: "Meet the Doctor", hash: "doctor" },
   { label: "Testimonials", hash: "testimonials" },
@@ -35,7 +34,15 @@ export default function Header() {
 
           <nav>
             <ul className="navlinks">
-              {sectionLinks.map((l) => (
+              <li>
+                <a href={sectionHref("about")}>About</a>
+              </li>
+              <li>
+                <Link href="/specializations" className={pathname?.startsWith("/specializations") ? "navlink-active" : ""}>
+                  Specializations
+                </Link>
+              </li>
+              {sectionLinks.slice(1).map((l) => (
                 <li key={l.hash}>
                   <a href={sectionHref(l.hash)}>{l.label}</a>
                 </li>
@@ -73,7 +80,13 @@ export default function Header() {
 
         <div className={`mobile-menu${open ? " open" : ""}`}>
           <ul>
-            {sectionLinks.map((l) => (
+            <li>
+              <a href={sectionHref("about")} onClick={() => setOpen(false)}>About</a>
+            </li>
+            <li>
+              <Link href="/specializations" onClick={() => setOpen(false)}>Specializations</Link>
+            </li>
+            {sectionLinks.slice(1).map((l) => (
               <li key={l.hash}>
                 <a href={sectionHref(l.hash)} onClick={() => setOpen(false)}>
                   {l.label}

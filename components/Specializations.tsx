@@ -1,31 +1,6 @@
-const specializations = [
-  {
-    icon: "🌸",
-    title: "Obstetrics & Prenatal Care",
-    description:
-      "Antenatal monitoring, high-risk pregnancy management and painless-birthing guidance.",
-  },
-  {
-    icon: "🌿",
-    title: "Cosmetic Gynaecology",
-    description:
-      "Vaginal rejuvenation, HIFU and pelvic floor rehabilitation for comfort and confidence.",
-  },
-  {
-    icon: "🌼",
-    title: "Fertility & Reproductive Health",
-    description:
-      "Ovulation tracking, hormonal evaluation and structured infertility work-ups.",
-  },
-  {
-    icon: "🍃",
-    title: "Laparoscopic Surgery",
-    description:
-      "Minimally invasive treatment for fibroids, cysts and endometriosis.",
-  },
-];
-
+import Link from "next/link";
 import Reveal from "./Reveal";
+import { specializations } from "@/lib/specializations";
 
 export default function Specializations() {
   return (
@@ -43,15 +18,23 @@ export default function Specializations() {
         </Reveal>
         <div className="spec-grid">
           {specializations.map((s, i) => (
-            <Reveal as="up" delay={i * 80} key={s.title}>
-              <div className="spec-card">
+            <Reveal as="up" delay={i * 80} key={s.slug}>
+              <Link href={`/specializations/${s.slug}`} className="spec-card spec-card-link">
                 <div className="spec-icon">{s.icon}</div>
                 <h4>{s.title}</h4>
-                <p>{s.description}</p>
-              </div>
+                <p>{s.shortDescription}</p>
+                <span className="blog-readmore">Learn more →</span>
+              </Link>
             </Reveal>
           ))}
         </div>
+        <Reveal as="fade" delay={120}>
+          <div style={{ textAlign: "center", marginTop: 36 }}>
+            <Link href="/specializations" className="btn btn-outline">
+              View All Specializations →
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

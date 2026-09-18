@@ -15,7 +15,7 @@ export default function Footer() {
           <h4>Explore</h4>
           <ul>
             <li><a href="/#about">About</a></li>
-            <li><a href="/#specializations">Specializations</a></li>
+            <li><Link href="/specializations">Specializations</Link></li>
             <li><a href="/#services">Services</a></li>
             <li><a href="/#doctor">Meet the Doctor</a></li>
             <li><Link href="/gallery">Gallery</Link></li>
